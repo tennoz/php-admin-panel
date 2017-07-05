@@ -1,7 +1,7 @@
 <?php
-  $app['database']->insert('customer', [
+  $app['database']->insert('customers', [
     'email' => $_POST['email'],
-    'n-id' => $_POST['Id'],
+    'n_id' => $_POST['Id'],
     'password' => $_POST['password']
   ]);
 

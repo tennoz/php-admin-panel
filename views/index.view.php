@@ -3,13 +3,7 @@
 
   <h1>Submit Customer information</h1>
 
-  <form action="/names" method="POST">
-    <input type="text" name="name" value="">
-    <button type="submit">Submit</button>
-  </form>
-
-
-  <form action="/names" method="POST">
+  <form action="/customers" method="POST">
 
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
@@ -30,7 +24,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>
-
+  <a href="viewCustomers">View Customers</a>
 
 
 <?php require ('partials/footer.php'); ?>

@@ -32,7 +32,7 @@ class QueryBuilder
 
             $statement->execute($parameters);
         } catch (Exception $e) {
-            //
+            die($e->getMessage());
         }
     }
 }
