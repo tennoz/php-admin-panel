@@ -15,6 +15,7 @@
       <th scope="row"><?= $customer->id; ?></th>
       <td><?= $customer->email; ?></td>
       <td><?= $customer->n_id; ?></td>
+      <td><a href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
     </tr>
   <?php endforeach; ?>
   </tbody>

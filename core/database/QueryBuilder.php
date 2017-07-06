@@ -35,4 +35,27 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+    public function update($table, $parameters)
+    {
+      $input=' ';
+      $paramsKeys = array_keys($parameters);
+      foreach ($key as $paramsKeys) {
+        $input += $key +'='+$parameters[$key]+', ';
+      }
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE id=%d',
+            $table,
+            $input,
+            16
+        );
+        var_dump($sql);
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
