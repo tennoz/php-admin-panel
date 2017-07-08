@@ -10,7 +10,7 @@
 
   <div class="form-group">
     <label for="exampleInputId"></label>
-    <input type="text" class="form-control" id="exampleInputId" aria-describedby="IdHelp" placeholder="National ID" name="Id" value="<?= $currentCustomer->n_id; ?>">
+    <input type="text" class="form-control" id="exampleInputId" aria-describedby="IdHelp" placeholder="National ID" name="n_id" value="<?= $currentCustomer->n_id; ?>">
   </div>
 
   <div class="form-group">

@@ -3,7 +3,6 @@
 class QueryBuilder
 {
     protected $pdo;
-
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -37,19 +36,14 @@ class QueryBuilder
     }
     public function update($table, $parameters)
     {
-        $sql = sprintf(
-            // 'UPDATE SET %s (%s) values (%s) where id = $id',
-            'UPDATE %s SET email = %s, n_id = %d, password = %g WHERE %d = %d',
-            $table,
-            $email,
-            $n_d,
-            $password,
-            $table->id,
-            $id
-            // implode(', ', array_keys($parameters)),
-            // ':' . implode(', :', array_keys($parameters))
-        );
 
+        $sql = sprintf(
+            "UPDATE %s SET %s WHERE %s.id = %d",
+            $table,
+            implode(', ', array_keys($parameters) . ':' . implode(', :', array_keys($parameters))),
+            $table,
+            $table->id
+        );
         try {
             $statement = $this->pdo->prepare($sql);
 
@@ -59,6 +53,23 @@ class QueryBuilder
         }
     }
 
+    public function delete($table, $parameters) {
+      $_POST['id'];
+      $sql = sprintf(
+          'DELETE FROM %s WHERE customers.id = %s',
+          $table,
+          $id
+      );
+
+      try {
+          $statement = $this->pdo->prepare($sql);
+
+          $statement->execute($parameters);
+      } catch (Exception $e) {
+          die($e->getMessage());
+      }
+
+    }
 
 
 
@@ -86,6 +97,7 @@ class QueryBuilder
     //         $table,
     //         $input,
     //         16
+    //
     //     );
     //     var_dump($sql);
     //
@@ -97,4 +109,5 @@ class QueryBuilder
     //         die($e->getMessage());
     //     }
     // }
+
 }
