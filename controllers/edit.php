@@ -15,7 +15,7 @@
   if (count($_POST)>0) {
     // array.length
     $app['database']->update('customers', [
-      'id'=>$_POST['id'],
+      'id'=>$_GET['id'],
       'email' => $_POST['email'],
       'n_id' => $_POST['n_id'],
       'password' => $_POST['password']

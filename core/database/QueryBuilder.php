@@ -34,24 +34,44 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+    // public function update($table, $parameters)
+    // {
+    //
+    //     $sql = sprintf(
+    //         "UPDATE %s SET %s WHERE %s.id = %d",
+    //         $table,
+    //         implode(', ', array_keys($parameters) . ':' . implode(', :', array_keys($parameters))),
+    //         $table,
+    //         $id
+    //     );
+    //     try {
+    //         $statement = $this->pdo->prepare($sql);
+    //
+    //         $statement->execute($parameters);
+    //     } catch (Exception $e) {
+    //         die($e->getMessage());
+    //     }
+    // }
+
     public function update($table, $parameters)
-    {
+      {
 
-        $sql = sprintf(
-            "UPDATE %s SET %s WHERE %s.id = %d",
-            $table,
-            implode(', ', array_keys($parameters) . ':' . implode(', :', array_keys($parameters))),
-            $table,
-            $table->id
-        );
-        try {
-            $statement = $this->pdo->prepare($sql);
-
-            $statement->execute($parameters);
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
+          $sql = sprintf(
+              "UPDATE %s SET %s WHERE %s.id = '%d'",
+              $table,
+              implode(', ', array_keys($parameters) . ':' . implode(', :', array_keys($parameters))),
+              $table,
+              $id
+          );
+          echo $sql;
+          // try {
+          //     $statement = $this->pdo->prepare($sql);
+          //
+          //     $statement->execute($parameters);
+          // } catch (Exception $e) {
+          //     die($e->getMessage());
+          // }
+      }
 
     public function delete($table, $parameters) {
       $_POST['id'];
