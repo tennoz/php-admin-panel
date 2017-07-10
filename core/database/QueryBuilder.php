@@ -63,9 +63,9 @@ class QueryBuilder
     }
 
     public function delete($table, $parameters) {
-      $_POST['id'];
       $sql = sprintf(
-          'DELETE FROM %s WHERE customers.id = %s',
+          'DELETE FROM %s WHERE %s.id = %s',
+          $table,
           $table,
           $id
       );
@@ -79,4 +79,5 @@ class QueryBuilder
       }
 
     }
+
 }

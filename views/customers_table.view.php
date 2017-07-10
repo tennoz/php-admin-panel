@@ -16,14 +16,10 @@
       <td><?= $customer->email; ?></td>
       <td><?= $customer->n_id; ?></td>
       <td><a href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
+      <td><a href="delete?id=<?php echo $customer->id ?>"><input type="submit" name="delete" value="Delete Customer"></a></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
-
-
-
-
-
 
 <?php require ('partials/footer.php'); ?>
