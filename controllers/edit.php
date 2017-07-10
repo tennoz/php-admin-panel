@@ -12,6 +12,7 @@ if (count($_POST)>0) {
   }
   // make sure it's a get request and gets the id
   // $customers = $app['database']->selectId('customers');
+  //something still wrong with this method..
 
   $customers = $app['database']->selectAll('customers');
   $currentCustomer;

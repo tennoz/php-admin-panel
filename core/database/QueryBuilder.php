@@ -16,14 +16,14 @@ class QueryBuilder
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
-    public function selectId($table)
-    {
-        $statement = $this->pdo->prepare("select id from {$table}");
-
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS);
-    }
+    // public function selectId($table)
+    // {
+    //     $statement = $this->pdo->prepare("select id from {$table}");
+    //
+    //     $statement->execute();
+    //
+    //     return $statement->fetchAll(PDO::FETCH_CLASS);
+    // }
 
     public function insert($table, $parameters)
     {
