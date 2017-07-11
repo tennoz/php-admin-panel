@@ -62,22 +62,22 @@ class QueryBuilder
         }
     }
 
-    // public function delete($table, $parameters) {
-    //   $sql = sprintf(
-    //       'DELETE FROM %s WHERE %s.id = %s',
-    //       $table,
-    //       $table,
-    //       $id
-    //   );
-    //
-    //   try {
-    //       $statement = $this->pdo->prepare($sql);
-    //
-    //       $statement->execute($parameters);
-    //   } catch (Exception $e) {
-    //       die($e->getMessage());
-    //   }
+    public function delete($table, $id) {
+      $sql = sprintf(
+          'DELETE FROM %s WHERE %s.id = %s',
+          $table,
+          $table,
+          $id
+      );
 
-    // }
+      try {
+          $statement = $this->pdo->prepare($sql);
+
+          $statement->execute($id);
+      } catch (Exception $e) {
+          die($e->getMessage());
+      }
+
+    }
 
 }
