@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 11, 2017 at 01:07 AM
+-- Generation Time: Jul 12, 2017 at 05:17 PM
 -- Server version: 5.7.18-0ubuntu0.17.04.1
 -- PHP Version: 7.0.18-0ubuntu0.17.04.1
 
@@ -38,16 +38,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `email`, `n_id`, `password`) VALUES
-(1, 'ahmad@gmail.com', '1111111111111', '1111111111111'),
-(2, 'kareem@gmail.com', '234567', '456789'),
-(3, 'omar@gmail.com', '124123523t', '12354235235'),
-(4, 'amr@gmail.com', '45678', '56789'),
-(5, 'moaaz@gmail.com', '23r4', '567'),
+(5, 'moaazAlshazly@gmail.com', '23r4', '567'),
 (6, 'ameer@gmail.com', '124', '12345'),
-(7, 'ahmed@gmail.com', '121231', '23r23r423'),
-(8, 'hamdy@gmail.com', 'nationalID', 'passwordsss'),
-(10, 'sarah@gmail.com', '12412', '1242'),
-(11, 'AmrGhobary@gmail.com', '1234567', '1234567uj');
+(7, 'ahmed@gmail.com', '121231', '23r23r423');
 
 -- --------------------------------------------------------
 
@@ -124,7 +117,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `todos`
 --
