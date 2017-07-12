@@ -72,12 +72,10 @@ class QueryBuilder
 
       try {
           $statement = $this->pdo->prepare($sql);
-
-          $statement->execute($id);
+          $statement->execute();
       } catch (Exception $e) {
           die($e->getMessage());
       }
-
     }
 
 }
