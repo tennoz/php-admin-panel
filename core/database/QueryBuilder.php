@@ -78,5 +78,13 @@ class QueryBuilder
           die($e->getMessage());
       }
     }
+    public function selectLogedUser($table)
+    {
+        $statement = $this->pdo->prepare("select * from {$table} WHERE email = $userData->email");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
 
 }

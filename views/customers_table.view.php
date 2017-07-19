@@ -1,11 +1,11 @@
 <?php require ('partials/head.php'); ?>
+<?php require ('partials/nav.php'); ?>
+
+
 <?php
-if (!$_SESSION) {
+if (!$_SESSION['userData']) {
   header("location:/login");
-}
-if($_SESSION['message']){
-  echo $_SESSION['message'];
-  $_SESSION['message']='';
+  die;
 }
 ?>
 
@@ -23,8 +23,16 @@ if($_SESSION['message']){
       <th scope="row"><?= $customer->id; ?></th>
       <td><?= $customer->email; ?></td>
       <td><?= $customer->n_id; ?></td>
-      <td><a  class="btn btn-info" href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
-      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $customer->id ?>">Delete</a></td>
+      <?php if($_SESSION['userData']->level == 'admin')  {
+      echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
+      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $customer->id ?>">Delete</a></td>';
+      } else {
+        echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $user->id ?>">edit customer</a></td>
+      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $user->id ?>">Delete</a></td>';
+      }
+    ?>
+      
+    
     </tr>
   <?php endforeach; ?>
   </tbody>

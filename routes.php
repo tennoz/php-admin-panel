@@ -7,4 +7,6 @@
   $router->get('viewCustomers', 'controllers/customers_table.php');
   $router->get('edit', 'controllers/edit.php');
   $router->post('edit', 'controllers/edit.php');
+  $router->get('logout', 'controllers/logout.php');
+
  ?>

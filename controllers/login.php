@@ -1,5 +1,5 @@
 <?php
-//var_dump($_POST);
+
 if($_POST['login']) {
     if ($userData=$app['database']->login($_POST['email'] ,$_POST['password'])){
         $_SESSION['userData']=$userData;
@@ -8,6 +8,6 @@ if($_POST['login']) {
         echo 'username or password incorrect!';
     }
 }
-
+$_SESSION['userData']=$app['database']->selectLogedUser('customers');
 
 require 'views/login.view.php';
