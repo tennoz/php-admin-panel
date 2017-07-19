@@ -1,0 +1,25 @@
+body {
+    background: #42b0f4;
+}
+
+.login-form {
+    width: 40%;
+    border-radius: 15px;
+    padding: 15px 15px 70px 15px;
+    margin-top: 30px;
+    background: #f48442;
+}
+
+.login-form input {
+    width: 80%;
+}
+
+.login-form button {
+    margin-top: 30px;
+    width: 30%;
+    font-size: 1.3em;
+}
+
+.login-footing-text {
+    padding-top: 40px;
+}

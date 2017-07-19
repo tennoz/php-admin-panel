@@ -16,14 +16,15 @@ class QueryBuilder
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
-    // public function selectId($table)
-    // {
-    //     $statement = $this->pdo->prepare("select id from {$table}");
-    //
-    //     $statement->execute();
-    //
-    //     return $statement->fetchAll(PDO::FETCH_CLASS);
-    // }
+    public function login($email,$password)
+    {
+        $statement = $this->pdo->prepare("select * from customers where email='{$email}' and password='{$password}'");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
 
     public function insert($table, $parameters)
     {
@@ -43,7 +44,7 @@ class QueryBuilder
         }
     }
 
-    public function update($table, $parameters,$id)
+    public function update($table, $parameters, $id)
     {
       $sql = sprintf(
             "UPDATE %s SET %s WHERE %s.id = '%d'",

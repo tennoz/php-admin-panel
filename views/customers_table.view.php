@@ -1,5 +1,13 @@
 <?php require ('partials/head.php'); ?>
-
+<?php
+if (!$_SESSION) {
+  header("location:/login");
+}
+if($_SESSION['message']){
+  echo $_SESSION['message'];
+  $_SESSION['message']='';
+}
+?>
 
 <table class="table table-hover">
   <thead>
@@ -15,8 +23,8 @@
       <th scope="row"><?= $customer->id; ?></th>
       <td><?= $customer->email; ?></td>
       <td><?= $customer->n_id; ?></td>
-      <td><a href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
-      <td><a href="delete?id=<?php echo $customer->id ?>"><input type="submit" name="delete" value="delete"></a></td>
+      <td><a  class="btn btn-info" href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
+      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $customer->id ?>">Delete</a></td>
     </tr>
   <?php endforeach; ?>
   </tbody>

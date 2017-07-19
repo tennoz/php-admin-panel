@@ -1,5 +1,4 @@
 <?php require ('partials/head.php'); ?>
-
   <h1>Submit Customer information</h1>
 
   <form action="/customers" method="POST">
