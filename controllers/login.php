@@ -8,6 +8,5 @@ if($_POST['login']) {
         echo 'username or password incorrect!';
     }
 }
-$_SESSION['userData']=$app['database']->selectLogedUser('customers');
 
 require 'views/login.view.php';

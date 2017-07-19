@@ -8,7 +8,7 @@ if (!$_SESSION['userData']) {
   die;
 }
 ?>
-
+<?php var_dump($_SESSION['userData']);?>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -27,8 +27,8 @@ if (!$_SESSION['userData']) {
       echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
       <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $customer->id ?>">Delete</a></td>';
       } else {
-        echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $user->id ?>">edit customer</a></td>
-      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $user->id ?>">Delete</a></td>';
+        echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $userData->id ?>">edit customer</a></td>
+      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $userData->id ?>">Delete</a></td>';
       }
     ?>
       
