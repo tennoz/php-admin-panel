@@ -8,7 +8,9 @@ if (!$_SESSION['userData']) {
   die;
 }
 ?>
-<?php var_dump($_SESSION['userData']);?>
+<?php $userData = json_decode(json_encode($_SESSION['userData']), True); ?>
+<?php $level = $userData[0][level]; ?>
+<?php var_dump($userData);?>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -23,14 +25,13 @@ if (!$_SESSION['userData']) {
       <th scope="row"><?= $customer->id; ?></th>
       <td><?= $customer->email; ?></td>
       <td><?= $customer->n_id; ?></td>
-      <?php if($_SESSION['userData']->level == 'admin')  {
-      echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $customer->id ?>">edit customer</a></td>
-      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $customer->id ?>">Delete</a></td>';
-      } else {
-        echo '<td><a  class="btn btn-info" href="edit?id=<?php echo $userData->id ?>">edit customer</a></td>
-      <td><a  class="btn btn-danger" href="viewCustomers?id=<?php echo $userData->id ?>">Delete</a></td>';
-      }
-    ?>
+
+      <td><?= $userData[0][id]?></td>
+      
+      <td><a  class="btn btn-info" href="edit?id=<?= $customer->id ?>">edit customer</a></td>
+      <td><a  class="btn btn-danger" href="viewCustomers?id=<?= $customer->id ?>">Delete</a></td>
+  
+    
       
     
     </tr>
