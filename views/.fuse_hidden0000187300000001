@@ -1,0 +1,60 @@
+<?php require ('partials/head.php'); ?>
+<?php require ('partials/nav.php'); ?>
+
+
+<?php
+if (!$_SESSION['userData']) {
+  header("location:/login");
+  die;
+}
+?>
+<?php $userData = json_decode(json_encode($_SESSION['userData']), True); ?>
+<?php $level = $userData[0][level]; ?>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Email</th>
+      <th>National ID</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+  <?php if ($level == admin) {
+
+    foreach ($customers as $customer) {
+      var_dump($customer->email);
+      echo'<tr>';
+
+        echo'<th scope="row">'.$customer->id.'</th>';
+        echo'<td><?= $customer->email; ?></td>';
+        echo'<td><?= $customer->n_id; ?></td>';
+
+        echo'<td><?= $userData[0][id]?></td>';
+        
+        echo'<td><a  class="btn btn-info" href="edit?id=<?= $customer->id ?>">edit customer</a></td>';
+        echo'<td><a  class="btn btn-danger" href="viewCustomers?id=<?= $customer->id ?>">Delete</a></td>';
+    
+      echo'</tr>';
+    }
+   } elseif ($level == user){
+
+    echo '<tr>';
+    echo '<th scope="row"><?= $userData[0][id]; ?></th>';
+    echo '<td><?= $userData[0][email]; ?></td>';
+    echo '<td><?= $userData[0][n_id]; ?></td>';
+    echo '<td><a class="btn btn-info" href="edit?id=<?= $userData[0][id] ?>">edit customer</a></td>';
+    echo '<td><a class="btn btn-danger" href="viewCustomers?id=<?= $userData[0][id] ?>">Delete</a></td>';
+    echo '</tr>';
+
+  } else {
+    header("location:/login");
+  }
+    ?>
+  
+  </tbody>
+</table>
+
+<?php require ('partials/footer.php'); ?>

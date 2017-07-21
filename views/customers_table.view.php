@@ -10,7 +10,7 @@ if (!$_SESSION['userData']) {
 ?>
 <?php $userData = json_decode(json_encode($_SESSION['userData']), True); ?>
 <?php $level = $userData[0][level]; ?>
-<?php var_dump($userData);?>
+<?php // var_dump($userData);?>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -20,22 +20,42 @@ if (!$_SESSION['userData']) {
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($customers as $customer) : ?>
-    <tr>
-      <th scope="row"><?= $customer->id; ?></th>
-      <td><?= $customer->email; ?></td>
-      <td><?= $customer->n_id; ?></td>
 
-      <td><?= $userData[0][id]?></td>
+
+
+    <?php if ($level == admin): ?>
+
+      <?php foreach ($customers as $customer): ?>
+        <tr>
+          <th scope="row"><?= $customer->id; ?></th>
+          <td><?= $customer->email; ?></td>
+          <td><?= $customer->n_id; ?></td>
+
+          <td><?= $userData[0][id]?></td>
+          
+          <td><a  class="btn btn-info" href="edit?id=<?= $customer->id ?>">edit customer</a></td>
+          <td><a  class="btn btn-danger" href="viewCustomers?id=<?= $customer->id ?>">Delete</a></td>
       
-      <td><a  class="btn btn-info" href="edit?id=<?= $customer->id ?>">edit customer</a></td>
-      <td><a  class="btn btn-danger" href="viewCustomers?id=<?= $customer->id ?>">Delete</a></td>
-  
-    
+        </tr>
+      <?php endforeach; ?>
+
+    <?php elseif($level == user): ?>
+
       
-    
-    </tr>
-  <?php endforeach; ?>
+        <tr>
+          <th scope="row"><?= $userData[0][id]; ?></th>
+          <td><?= $userData[0][email]; ?></td>
+          <td><?= $userData[0][n_id]; ?></td>
+
+          <td><?= $userData[0][level]?></td>
+          
+          <td><a  class="btn btn-info" href="edit?id=<?= $userData[0][id] ?>">edit customer</a></td>
+          <td><a  class="btn btn-danger" href="viewCustomers?id=<?= $userData[0][id] ?>">Delete</a></td>
+      
+        </tr>
+     
+
+    <?php endif ?>
   </tbody>
 </table>
 

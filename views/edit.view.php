@@ -2,8 +2,14 @@
 <?php require ('partials/nav.php'); ?>
 <?php if (!$_SESSION['userData']) {
   header("location:/login");
-  die;
-}?>
+}
+?>
+<?php $userData = json_decode(json_encode($_SESSION['userData']), True); ?>
+<?php 
+  if ($_GET[id] !== $userData[0][id] && $userData[0][level] !== admin) {
+    header("location:/login");
+  }
+ ?>
 
 <form action="" method="POST">
 
